@@ -32,6 +32,9 @@
         <activity android:name=".presentation.DetailMarket.DetailActivity" />
         <activity android:name=".presentation.order.Pay" />
         <activity android:name=".presentation.OrderList.OrderListActivity"></activity>
+        <activity android:name=".presentation.order.Money" />
+        <activity android:name=".presentation.order.Succeed"></activity>
     </application>
+
 
 </manifest>

@@ -14,7 +14,7 @@
         android:id="@+id/back_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_chevron_left_black_48dp"
+        android:src="@drawable/left_white"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="10dp"/>
     <ImageView
@@ -67,6 +67,7 @@
         android:paddingLeft="20dp"
         android:padding="4dp"
         android:textSize="16sp"
+        android:inputType="textPassword"
 
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

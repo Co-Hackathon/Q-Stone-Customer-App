@@ -41,5 +41,6 @@ public class SignUp extends AppCompatActivity {
         checkpassword.setInputType(InputType.TYPE_CLASS_NUMBER);
         PasswordTransformationMethod passwdfm2 = new PasswordTransformationMethod();
         checkpassword.setTransformationMethod(passwdfm2);
+
     }
 }
