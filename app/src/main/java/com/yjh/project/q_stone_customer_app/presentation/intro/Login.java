@@ -1,7 +1,7 @@
 package com.yjh.project.q_stone_customer_app.presentation.intro;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 public class Login extends AppCompatActivity {
 
