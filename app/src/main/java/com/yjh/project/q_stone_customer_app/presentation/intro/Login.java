@@ -8,12 +8,14 @@ import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.yjh.project.q_stone_customer_app.R;
 import com.yjh.project.q_stone_customer_app.di.app.App;
 import com.yjh.project.q_stone_customer_app.network.Api;
 import com.yjh.project.q_stone_customer_app.presentation.main.MainActivity;
+import com.yjh.project.q_stone_customer_app.presentation.order.Pay;
 
 import javax.inject.Inject;
 
@@ -48,6 +50,17 @@ public class Login extends AppCompatActivity {
         password.setInputType(InputType.TYPE_CLASS_NUMBER);
         PasswordTransformationMethod passwdfm = new PasswordTransformationMethod();
         password.setTransformationMethod(passwdfm);
+
+        ImageView back = findViewById(R.id.back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Login.this, Intro.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
 
