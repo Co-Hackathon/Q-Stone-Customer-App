@@ -29,7 +29,7 @@ class App : Application(), AppContract.View {
         //platformStatic allow access it from java code
         @JvmStatic
         lateinit var component: AppComponent
-        val BASE_URL = "https://api.github.com/"
+        val BASE_URL = "http://192.168.0.139:8000"
     }
 
     override fun onCreate() {

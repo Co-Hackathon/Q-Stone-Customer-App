@@ -73,27 +73,24 @@ class MainActivity : AppCompatActivity(), MainContract.View  {
         scanHandler.post(scanRunnable)
 
         Thread(Runnable {
-            Thread.sleep(1000)
-            while (true){
-                runOnUiThread {
-                    if(mainRecyclerViewAdapter.itemCount<=0){
-                        empty_bluetooth.visibility=View.VISIBLE
-                        main_recycler_view.visibility=View.GONE
-                        swipe_layout.visibility=View.GONE
-                        empty_bluetooth_text.visibility=View.VISIBLE
-                    }else{
-                        empty_bluetooth.visibility=View.GONE
-                        main_recycler_view.visibility=View.VISIBLE
-                        swipe_layout.visibility=View.VISIBLE
-                        empty_bluetooth_text.visibility=View.GONE
-                    }
-
-
-                    test.distinctBy { it.minor }.let {
-                        mainRecyclerViewAdapter.setData(it as ArrayList<com.yjh.project.q_stone_customer_app.domain.Beacon>)
-                    }
+            Thread.sleep(10000)
+            runOnUiThread {
+                if (mainRecyclerViewAdapter.itemCount <= 0) {
+                    empty_bluetooth.visibility = View.VISIBLE
+                    main_recycler_view.visibility = View.GONE
+                    swipe_layout.visibility = View.GONE
+                    empty_bluetooth_text.visibility = View.VISIBLE
+                } else {
+                    empty_bluetooth.visibility = View.GONE
+                    main_recycler_view.visibility = View.VISIBLE
+                    swipe_layout.visibility = View.VISIBLE
+                    empty_bluetooth_text.visibility = View.GONE
                 }
+
+                mainRecyclerViewAdapter.setData(test as ArrayList<com.yjh.project.q_stone_customer_app.domain.Beacon>)
+
             }
+
         }).start()
 
 
@@ -103,10 +100,6 @@ class MainActivity : AppCompatActivity(), MainContract.View  {
     private fun init(){
         main_recycler_view.layoutManager = LinearLayoutManager(applicationContext)
         main_recycler_view.adapter = mainRecyclerViewAdapter
-
-
-
-
     }
 
     override fun beaconInit() {
