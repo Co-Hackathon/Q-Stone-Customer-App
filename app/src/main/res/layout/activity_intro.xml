@@ -21,6 +21,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="15dp"
         android:text="기존 회원이라면?"
+        android:fontFamily="@font/nanum_bd"
         android:textColor="#FFFF"/>
 
     <ImageView
@@ -42,10 +43,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:text="회원가입 시작하기"
         android:background="#696969"
-        android:paddingVertical="10dp"
+        android:paddingVertical="20dp"
         android:textColor="#FFFF"
-        android:textSize="20dp"
-        android:textStyle="bold"
+        android:textSize="25dp"
+        android:fontFamily="@font/nanum_bd"
         android:onClick="SignUpClick"/>
 
     <Button
@@ -54,9 +55,9 @@
         android:text="구글 계정으로 시작하기"
         app:layout_constraintBottom_toTopOf="@id/SignUp"
         android:background="#4682B4"
-        android:paddingVertical="10dp"
+        android:paddingVertical="20dp"
         android:textColor="#FFFF"
-        android:textSize="20dp"
-        android:textStyle="bold"
+        android:textSize="25dp"
+        android:fontFamily="@font/nanum_bd"
         android:onClick="SignUpClick"/>
 </android.support.constraint.ConstraintLayout>
