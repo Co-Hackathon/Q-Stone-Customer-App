@@ -1,4 +1,4 @@
-package com.yjh.project.q_stone_customer_app.presentation
+package com.yjh.project.q_stone_customer_app.presentation.main
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
