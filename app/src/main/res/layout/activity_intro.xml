@@ -4,12 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <ImageView
-        android:src="@drawable/intro_background"
-        android:scaleType="centerCrop"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/intro_background"
+        />
+
     <TextView
+        android:id="@+id/login_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintRight_toRightOf="parent"
@@ -17,28 +21,20 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="15dp"
         android:text="기존 회원이라면?"
-        android:onClick="LoginClick"
         android:textColor="#FFFF"/>
+
     <ImageView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginBottom="100dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/logo"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="구글 계정으로 시작하기"
-        app:layout_constraintBottom_toTopOf="@id/SignUp"
-        android:background="#4682B4"
-        android:paddingVertical="10dp"
-        android:textColor="#FFFF"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:onClick="SignUpClick"/>
+        />
+
     <Button
         android:id="@+id/SignUp"
         android:layout_width="match_parent"
@@ -52,4 +48,15 @@
         android:textStyle="bold"
         android:onClick="SignUpClick"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="구글 계정으로 시작하기"
+        app:layout_constraintBottom_toTopOf="@id/SignUp"
+        android:background="#4682B4"
+        android:paddingVertical="10dp"
+        android:textColor="#FFFF"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:onClick="SignUpClick"/>
 </android.support.constraint.ConstraintLayout>
