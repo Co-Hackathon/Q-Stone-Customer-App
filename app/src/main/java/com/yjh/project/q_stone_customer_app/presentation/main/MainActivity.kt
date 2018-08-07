@@ -6,27 +6,19 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
-import android.widget.LinearLayout
 import android.widget.Toast
-import com.estimote.sdk.Beacon
 import com.estimote.sdk.BeaconManager
 import com.estimote.sdk.Region
 import com.yjh.project.q_stone_customer_app.R
-import com.yjh.project.q_stone_customer_app.presentation.app.AppContract
 import com.estimote.sdk.SystemRequirementsChecker
-import com.estimote.sdk.cloud.model.BeaconInfo
-import com.estimote.sdk.service.internal.BluetoothScanner
-import com.estimote.sdk.service.internal.BluetoothScannerAdapter
-import com.yjh.project.q_stone_customer_app.di.app.App
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
-import android.bluetooth.BluetoothDevice
 import android.util.Log
 import kotlin.experimental.and
 import android.bluetooth.BluetoothManager
 import android.content.Context
 import android.os.Handler
-import android.support.annotation.UiThread
+import android.support.v7.widget.DividerItemDecoration
 import android.view.View
 import com.estimote.sdk.repackaged.dfu_v0_6_1.no.nordicsemi.android.dfu.internal.exception.UnknownResponseException.bytesToHex
 import kotlin.collections.ArrayList
@@ -37,7 +29,7 @@ class MainActivity : AppCompatActivity(), MainContract.View  {
     lateinit var beaconManager: BeaconManager
     lateinit var region: Region
     lateinit var mainPresenter: MainPresenter
-    val mainRecyclerViewAdapter: MainRecyclerViewAdapter by lazy { MainRecyclerViewAdapter() }
+    val mainRecyclerViewAdapter: MainRecyclerViewAdapter by lazy { MainRecyclerViewAdapter(this) }
 
     var btManager: BluetoothManager? = null
     var btAdapter: BluetoothAdapter? = null
@@ -46,11 +38,16 @@ class MainActivity : AppCompatActivity(), MainContract.View  {
     var isScanning = false
 
 
-    //var test= arrayListOf(com.yjh.project.q_stone_customer_app.domain.Beacon("fda50693-a4e2-4fb1-afcf-c6eb07647825","40:F3:85:90:63:5F","맥",205,70))
-    var test= arrayListOf<com.yjh.project.q_stone_customer_app.domain.Beacon>()
+
+
+    var test= arrayListOf(
+            com.yjh.project.q_stone_customer_app.domain.Beacon("fda50693-a4e2-4fb1-afcf-c6eb07647825","40:F3:85:90:63:5F","맥",205,70),
+            com.yjh.project.q_stone_customer_app.domain.Beacon("fda50693-a4e2-4fb1-afcf-c6eb07647825","40:F3:85:90:63:5F","맥",205,100)
+    )
+    //var test= arrayListOf<com.yjh.project.q_stone_customer_app.domain.Beacon>()
 
     init {
-        mainPresenter = MainPresenter(this)
+       // mainPresenter = MainPresenter(this)
         region = Region(
                             "paycheck region",
                             UUID.fromString("fda50693-a4e2-4fb1-afcf-c6eb07647825"),
@@ -63,8 +60,8 @@ class MainActivity : AppCompatActivity(), MainContract.View  {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        beaconInit()
-        mainPresenter.beaconRanging(beaconManager)
+        //beaconInit()
+        //mainPresenter.beaconRanging(beaconManager)
         btManager = getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
         btAdapter = btManager!!.adapter
 
@@ -73,7 +70,7 @@ class MainActivity : AppCompatActivity(), MainContract.View  {
         scanHandler.post(scanRunnable)
 
         Thread(Runnable {
-            Thread.sleep(10000)
+            Thread.sleep(500)
             runOnUiThread {
                 if (mainRecyclerViewAdapter.itemCount <= 0) {
                     empty_bluetooth.visibility = View.VISIBLE
@@ -87,7 +84,6 @@ class MainActivity : AppCompatActivity(), MainContract.View  {
                     empty_bluetooth_text.visibility = View.GONE
                 }
 
-                mainRecyclerViewAdapter.setData(test as ArrayList<com.yjh.project.q_stone_customer_app.domain.Beacon>)
 
             }
 
@@ -100,6 +96,10 @@ class MainActivity : AppCompatActivity(), MainContract.View  {
     private fun init(){
         main_recycler_view.layoutManager = LinearLayoutManager(applicationContext)
         main_recycler_view.adapter = mainRecyclerViewAdapter
+        main_recycler_view.addItemDecoration( DividerItemDecoration(main_recycler_view.context, DividerItemDecoration.VERTICAL))
+
+        mainRecyclerViewAdapter.setData(test as ArrayList<com.yjh.project.q_stone_customer_app.domain.Beacon>)
+
     }
 
     override fun beaconInit() {
@@ -115,13 +115,13 @@ class MainActivity : AppCompatActivity(), MainContract.View  {
 
     override fun onResume() {
         super.onResume()
-        SystemRequirementsChecker.checkWithDefaultDialogs(this)
+  /*      SystemRequirementsChecker.checkWithDefaultDialogs(this)
 
         beaconManager.connect {
             beaconManager.startRanging(
                    region
             )
-        }
+        }*/
     }
 
     override fun showToast(str: String) {
@@ -133,7 +133,7 @@ class MainActivity : AppCompatActivity(), MainContract.View  {
 
     override fun onPause() {
         super.onPause()
-        beaconManager.stopMonitoring(region)
+       // beaconManager.stopMonitoring(region)
     }
 
     private val scanRunnable = object : Runnable {
@@ -159,10 +159,6 @@ class MainActivity : AppCompatActivity(), MainContract.View  {
 
             isScanning = !isScanning
             scanHandler.postDelayed(this, scan_interval_ms)
-
-
-
-
         }
     }
 
@@ -200,16 +196,11 @@ class MainActivity : AppCompatActivity(), MainContract.View  {
             val minor = (scanRecord[startByte + 22] and 0xff.toByte()) * 0x100 + (scanRecord[startByte + 23] and 0xff.toByte())
 
             Log.i("test", "UUID: $uuid\\nmajor: $major\\nminor$minor")
-            test.add(com.yjh.project.q_stone_customer_app.domain.Beacon(uuid,"40:F3:85:90:63:5F","홍콩",major,minor))
+            //test.add(com.yjh.project.q_stone_customer_app.domain.Beacon(uuid,"40:F3:85:90:63:5F","홍콩",major,minor))
             Log.d("test",test.size.toString())
 
         }
     }
-
-    /**
-     * bytesToHex method
-     */
-
 
 
 }

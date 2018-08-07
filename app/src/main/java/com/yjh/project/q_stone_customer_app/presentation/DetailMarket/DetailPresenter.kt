@@ -5,8 +5,10 @@ import android.util.Log
 import com.estimote.sdk.Beacon
 import com.estimote.sdk.BeaconManager
 import com.estimote.sdk.Region
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
-class MainPresenter(val view : MainContract.View) : DetailContract.UserActionListener {
+class DetailPresenter(val view : DetailContract.View) : DetailContract.UserActionListener {
 
 
     var check : Boolean =false
@@ -15,20 +17,22 @@ class MainPresenter(val view : MainContract.View) : DetailContract.UserActionLis
         beaconManager.setRangingListener(object  : BeaconManager.RangingListener{
             override fun onBeaconsDiscovered(p0: Region?, p1: MutableList<Beacon>?) {
                 if(!p1!!.isEmpty()) {
-
                     Log.d("beacon","test")
                     var beacon = p1!![0]
                     view.setText(beacon.rssi.toString())
 
-                    if(!check){
-                        check=true
-                        view.showDialog("연결 성공")
-                    }
 
+                    if (!check){
+                        view.showDialog("연결 성공")
+                        view.EndLoading()
+                        view.getMarket()
+                        check=true
+                    }
                 }else{
                     if(check){
-                        check=false
                         view.showDialog("연결 종료")
+                        view.setLoading()
+                        check=false
                     }
                 }
             }

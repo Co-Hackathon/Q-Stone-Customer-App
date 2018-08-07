@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Q-Stone-Customer-App</string>
     <string name="intro">기존 회원이라면 누르세요.</string>
+
+    <string name="notice_item_title">notice_item_title</string>
+    <string name="notice_item_address">notice_item_address</string>
+
 </resources>

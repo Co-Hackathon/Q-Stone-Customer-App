@@ -41,8 +41,8 @@ class App : Application(), AppContract.View {
                 .networkModule(NetworkModule(BASE_URL))
                 .build()
 
-        appPresenter.beaconConnect(beaconManager)
-        appPresenter.beaconMonitoring(beaconManager)
+      /*  appPresenter.beaconConnect(beaconManager)
+        appPresenter.beaconMonitoring(beaconManager)*/
 
         Log.d("onCreate","test")
     }

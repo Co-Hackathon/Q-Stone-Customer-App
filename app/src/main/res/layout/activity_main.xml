@@ -8,6 +8,8 @@
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
+        android:elevation="4dp"
+        android:background="#4682B4"
         android:layout_width="match_parent"
         android:layout_height="60dp">
 

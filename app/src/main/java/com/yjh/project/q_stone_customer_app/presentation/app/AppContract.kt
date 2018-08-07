@@ -1,6 +1,7 @@
 package com.yjh.project.q_stone_customer_app.presentation.app
 
 import com.estimote.sdk.BeaconManager
+import com.estimote.sdk.Region
 
 interface AppContract{
 
@@ -12,7 +13,7 @@ interface AppContract{
     }
 
     interface UserActionListener{
-        fun beaconConnect(beaconManager: BeaconManager)
+        fun beaconConnect(beaconManager: BeaconManager,region: Region)
         fun beaconMonitoring(beaconManager: BeaconManager)
     }
 }

@@ -11,17 +11,11 @@ import com.yjh.project.q_stone_customer_app.presentation.main.MainActivity
 
 
 class AppPresenter(val view : AppContract.View) : AppContract.UserActionListener {
-    override fun beaconConnect(beaconManager: BeaconManager) {
+    override fun beaconConnect(beaconManager: BeaconManager,region: Region) {
         beaconManager.connect(object : BeaconManager.ServiceReadyCallback{
             override fun onServiceReady() {
                 beaconManager.startMonitoring(
-                        Region
-                        (
-                                "paycheck region",
-                                UUID.fromString("fda50693-a4e2-4fb1-afcf-c6eb07647825"),
-                                205,
-                                70
-                        )
+                        region
                 )
             }
         })
@@ -32,7 +26,7 @@ class AppPresenter(val view : AppContract.View) : AppContract.UserActionListener
             override fun onExitedRegion(p0: Region?) {
                 Log.d("Log","비콘나감")
                 //비콘이랑 연결해제
-                view.showNotification("맥도날드 비콘 연결 나감 ")
+                view.showNotification(" 연결 나감 ")
 
             }
 

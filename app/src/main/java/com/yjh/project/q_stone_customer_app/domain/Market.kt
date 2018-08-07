@@ -4,9 +4,14 @@ import com.google.gson.annotations.SerializedName
 
 
 data class Market(
-        @SerializedName(" ") var marketBeacon : String,
-        @SerializedName("") var marketName : String,
-        @SerializedName("") var marketX : String,
-        @SerializedName("") var marketY : String,
-        @SerializedName("") var category: Int
+        @SerializedName("marketBecon") var marketBeacon : String,
+        @SerializedName("marketBeName") var marketBeName : String,
+        @SerializedName("marketName") var marketName : String,
+        var marketX : String,
+        var marketY : String,
+        @SerializedName("categoryNo") var category: Int,
+        @SerializedName("marketURL") var imageUrl: String,
+        var marketTime : String,
+        var marketPhone : String,
+        var marketAddress : String
 )
