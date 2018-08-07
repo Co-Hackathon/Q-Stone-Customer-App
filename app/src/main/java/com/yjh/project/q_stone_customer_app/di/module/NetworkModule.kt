@@ -36,7 +36,7 @@ class NetworkModule(val mBaseUrl: String) {
 
     @Provides
     @Singleton
-    fun provideGithubApi(gson: Gson, okHttpClient: OkHttpClient): Api {
+    fun provideApi(gson: Gson, okHttpClient: OkHttpClient): Api {
         return Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

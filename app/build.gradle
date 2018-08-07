@@ -26,7 +26,13 @@ android {
     packagingOptions {
         exclude 'META-INF/rxjava.properties'
     }
+
 }
+
+repositories {
+    jcenter()
+}
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -47,6 +53,9 @@ dependencies {
     implementation "com.google.dagger:dagger-android-support:$daggerVer"
 
     provided 'javax.annotation:jsr250-api:1.0'
+
+    // beacon
+    compile 'com.estimote:sdk:0.10.4@aar'
 
     // image
     implementation 'com.squareup.picasso:picasso:2.3.3'
