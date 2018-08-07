@@ -27,7 +27,9 @@ import android.bluetooth.BluetoothManager
 import android.content.Context
 import android.os.Handler
 import android.support.annotation.UiThread
+import android.view.View
 import com.estimote.sdk.repackaged.dfu_v0_6_1.no.nordicsemi.android.dfu.internal.exception.UnknownResponseException.bytesToHex
+import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity(), MainContract.View  {
@@ -44,8 +46,8 @@ class MainActivity : AppCompatActivity(), MainContract.View  {
     var isScanning = false
 
 
-    var test= arrayListOf(com.yjh.project.q_stone_customer_app.domain.Beacon("fda50693-a4e2-4fb1-afcf-c6eb07647825","40:F3:85:90:63:5F","맥",205,70))
-
+    //var test= arrayListOf(com.yjh.project.q_stone_customer_app.domain.Beacon("fda50693-a4e2-4fb1-afcf-c6eb07647825","40:F3:85:90:63:5F","맥",205,70))
+    var test= arrayListOf<com.yjh.project.q_stone_customer_app.domain.Beacon>()
 
     init {
         mainPresenter = MainPresenter(this)
@@ -70,9 +72,31 @@ class MainActivity : AppCompatActivity(), MainContract.View  {
 
         scanHandler.post(scanRunnable)
 
-        this.runOnUiThread {
-            mainRecyclerViewAdapter.setData(test)
-        }
+        Thread(Runnable {
+            Thread.sleep(1000)
+            while (true){
+                runOnUiThread {
+                    if(mainRecyclerViewAdapter.itemCount<=0){
+                        empty_bluetooth.visibility=View.VISIBLE
+                        main_recycler_view.visibility=View.GONE
+                        swipe_layout.visibility=View.GONE
+                        empty_bluetooth_text.visibility=View.VISIBLE
+                    }else{
+                        empty_bluetooth.visibility=View.GONE
+                        main_recycler_view.visibility=View.VISIBLE
+                        swipe_layout.visibility=View.VISIBLE
+                        empty_bluetooth_text.visibility=View.GONE
+                    }
+
+
+                    test.distinctBy { it.minor }.let {
+                        mainRecyclerViewAdapter.setData(it as ArrayList<com.yjh.project.q_stone_customer_app.domain.Beacon>)
+                    }
+                }
+            }
+        }).start()
+
+
 
     }
 
@@ -81,7 +105,8 @@ class MainActivity : AppCompatActivity(), MainContract.View  {
         main_recycler_view.adapter = mainRecyclerViewAdapter
 
 
-        mainRecyclerViewAdapter.setData(test)
+
+
     }
 
     override fun beaconInit() {
@@ -143,6 +168,8 @@ class MainActivity : AppCompatActivity(), MainContract.View  {
             scanHandler.postDelayed(this, scan_interval_ms)
 
 
+
+
         }
     }
 
@@ -180,7 +207,7 @@ class MainActivity : AppCompatActivity(), MainContract.View  {
             val minor = (scanRecord[startByte + 22] and 0xff.toByte()) * 0x100 + (scanRecord[startByte + 23] and 0xff.toByte())
 
             Log.i("test", "UUID: $uuid\\nmajor: $major\\nminor$minor")
-            //test.add(com.yjh.project.q_stone_customer_app.domain.Beacon(uuid,"40:F3:85:90:63:5F","홍콩",major,minor))
+            test.add(com.yjh.project.q_stone_customer_app.domain.Beacon(uuid,"40:F3:85:90:63:5F","홍콩",major,minor))
             Log.d("test",test.size.toString())
 
         }
