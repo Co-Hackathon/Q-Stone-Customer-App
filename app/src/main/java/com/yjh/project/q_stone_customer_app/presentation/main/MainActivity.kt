@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     override fun showDialog(str: String) {
         val dialog = AlertDialog.Builder(this@MainActivity)
         dialog.setTitle(str)
-                .setMessage("비콘이 연결되었습니다.")
+                .setMessage("비콘이 $str 되었습니다.")
                 .setPositiveButton("확인", DialogInterface.OnClickListener { dialog, which -> }).create().show()
     }
 

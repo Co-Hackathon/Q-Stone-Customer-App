@@ -2,5 +2,12 @@
 <layer-list
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:opacity="opaque">
-    <item android:drawable="@color/colorPrimary"/>
+    <item
+        android:drawable="@color/colorWhite"
+        />
+    <item android:width="128dp" android:height="128dp"
+        android:gravity="center_horizontal|top"
+        android:top="148dp"
+        android:drawable="@drawable/icon"
+        />
 </layer-list>

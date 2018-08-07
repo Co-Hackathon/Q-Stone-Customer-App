@@ -8,8 +8,8 @@ import com.estimote.sdk.Region
 
 class MainPresenter(val view : MainContract.View) : MainContract.UserActionListener {
 
-    var isConnected  = false
 
+    var check : Boolean =false
 
     override fun beaconRanging(beaconManager: BeaconManager) {
         beaconManager.setRangingListener(object  : BeaconManager.RangingListener{
@@ -20,13 +20,15 @@ class MainPresenter(val view : MainContract.View) : MainContract.UserActionListe
                     var beacon = p1!![0]
                     view.setText(beacon.rssi.toString())
 
-                    if ( beacon.rssi > -70 && !isConnected) {
-                        isConnected=true
+                    if(!check){
+                        check=true
                         view.showDialog("연결 성공")
-                    } else if (beacon.rssi < -70 && isConnected) {
-                        isConnected=false
+                    }
+
+                }else{
+                    if(check){
+                        check=false
                         view.showDialog("연결 종료")
-                        view.setText("연결 종료")
                     }
                 }
             }
