@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.order.Pay">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#4682B4">
+
+        <ImageView
+            android:id="@+id/back_pay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_chevron_left_black_48dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="결제"
+            android:textColor="#FFF"
+            android:textSize="20sp"
+            android:fontFamily="@font/nanum_bd"/>
+    </android.support.v7.widget.Toolbar>
+
+    <Button
+        android:id="@+id/buynow"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#4682B4"
+        android:text="결제 금액 결제하기"
+        android:fontFamily="@font/nanum_bd"
+        android:textColor="#FFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+        <TextView
+            android:id="@+id/pay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/nanum_bd"
+            android:text="결제금액"
+            android:textColor="#000"
+            android:textSize="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/nanum_bd"
+            android:text="금액"
+            android:textColor="#4682B4"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/payporm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/nanum_bd"
+            android:text="결제수단"
+            android:textColor="#000"
+            android:textSize="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pay" />
+
+    <ImageView
+        android:id="@+id/kakaopay"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:src="@drawable/kakaopay"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/payporm" />
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/payporm"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="70dp"/>
+
+    <ImageView
+        android:id="@+id/naver"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="4dp"
+        android:src="@drawable/naver"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kakaopay" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/kakaopay"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="70dp"/>
+
+    <ImageView
+        android:id="@+id/payco"
+        android:layout_width="362dp"
+        android:layout_height="28dp"
+        android:layout_marginLeft="16dp"
+        android:src="@drawable/payco"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/naver" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/naver"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="70dp"/>
+
+    <ImageView
+        android:id="@+id/toss"
+        android:layout_width="match_parent"
+        android:layout_height="29dp"
+        android:layout_marginLeft="16dp"
+        android:src="@drawable/toss"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/payco" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/payco"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="70dp"/>
+
+    <ImageView
+        android:id="@+id/samsung"
+        android:layout_width="match_parent"
+        android:layout_height="26dp"
+        android:layout_marginLeft="8dp"
+        android:src="@drawable/samsung"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toss" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/toss"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="70dp"/>
+
+    <ImageView
+        android:id="@+id/card"
+        android:layout_width="373dp"
+        android:layout_height="24dp"
+        android:layout_marginLeft="16dp"
+        android:src="@drawable/card"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/samsung" />
+
+
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/samsung"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="70dp"/>
+
+    <CheckBox
+        android:layout_width="25dp"
+        android:layout_height="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:id="@+id/check"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="현금영수증 신청"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:fontFamily="@font/nanum_bd"
+        android:textColor="#000"
+        android:textSize="15dp"
+        android:id="@+id/checktext"
+        app:layout_constraintLeft_toRightOf="@id/check"
+        app:layout_constraintTop_toBottomOf="@id/card" />
+    <RadioButton
+        android:layout_width="25dp"
+        android:layout_height="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/check"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="60dp"
+        android:id="@+id/radiobutton"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="개인소득공제용"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:fontFamily="@font/nanum_bd"
+        android:textColor="#000"
+        android:textSize="15dp"
+        android:id="@+id/gongjae"
+        app:layout_constraintLeft_toRightOf="@id/radiobutton"
+        app:layout_constraintTop_toBottomOf="@id/checktext" />
+    <RadioButton
+        android:layout_width="25dp"
+        android:layout_height="20dp"
+        app:layout_constraintLeft_toRightOf="@id/gongjae"
+        app:layout_constraintTop_toBottomOf="@id/check"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/radiobutton2"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="사업 증빙용"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:fontFamily="@font/nanum_bd"
+        android:textColor="#000"
+        android:textSize="15dp"
+        app:layout_constraintLeft_toRightOf="@id/radiobutton2"
+        app:layout_constraintTop_toBottomOf="@id/checktext" />
+    <EditText
+        android:id="@+id/phonenum"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:fontFamily="@font/nanum_bd"
+        android:background="@drawable/rounded_outline"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radiobutton"
+        android:hint="휴대폰 번호 11자리 입력('-'제외)"
+        android:padding="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/phonenum"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/nanum_bd"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:text="쿠폰"
+        android:id="@+id/coopon"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/phonenum"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/nanum_bd"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:text="1장"
+        android:id="@+id/cooponcount"/>
+
+    <ImageView
+        android:id="@+id/intocoopon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/cooponcount"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phonenum"
+        android:src="@drawable/ic_keyboard_arrow_right_black_48dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/coopon"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/nanum_bd"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:text="적립금"/>
+
+    <ImageView
+        android:id="@+id/intomoney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/cooponcount"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cooponcount"
+        android:src="@drawable/ic_keyboard_arrow_right_black_48dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/coopon"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/nanum_bd"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:text="300원"/>
+</android.support.constraint.ConstraintLayout>

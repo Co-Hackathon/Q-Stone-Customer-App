@@ -46,8 +46,7 @@
         android:padding="16sp"
         android:textColor="#FFFF"
         android:textSize="18sp"
-        android:fontFamily="@font/nanum_bd"
-        android:onClick="SignUpClick"/>
+        android:fontFamily="@font/nanum_bd" />
 
     <Button
         android:layout_width="match_parent"
@@ -58,6 +57,5 @@
         android:padding="16sp"
         android:textColor="#FFFF"
         android:textSize="18sp"
-        android:fontFamily="@font/nanum_bd"
-        android:onClick="SignUpClick"/>
+        android:fontFamily="@font/nanum_bd" />
 </android.support.constraint.ConstraintLayout>

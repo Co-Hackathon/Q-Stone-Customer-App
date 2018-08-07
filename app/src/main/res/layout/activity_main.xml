@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:fontFamily="@font/nanum_bold"
+            android:fontFamily="@font/nanum_bd"
             android:text="주변 음식점"
             android:textSize="16sp" />
 

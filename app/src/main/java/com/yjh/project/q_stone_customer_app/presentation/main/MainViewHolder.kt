@@ -15,8 +15,8 @@ class MainViewHolder(
     var beaconNameTextView = itemView.findViewById<TextView>(R.id.beacon_title)
     var beaconMacAdressTextView = itemView.findViewById<TextView>(R.id.beacon_mac_address)
 
-    fun  bindTo(image : String, beacon: com.yjh.project.q_stone_customer_app.domain.Beacon,onClick: (Any) -> Unit){
-        beaconNameTextView.text="맥도날드 비콘"
+    fun  bindTo( beacon: com.yjh.project.q_stone_customer_app.domain.Beacon,onClick: (Any) -> Unit){
+        beaconNameTextView.text=beacon.name
         beaconMacAdressTextView.text=beacon.macAddress
         itemView.setOnClickListener(onClick)
     }

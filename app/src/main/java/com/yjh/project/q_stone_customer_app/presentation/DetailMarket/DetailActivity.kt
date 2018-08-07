@@ -22,6 +22,7 @@ import com.yjh.project.q_stone_customer_app.R
 import com.yjh.project.q_stone_customer_app.di.app.App
 import com.yjh.project.q_stone_customer_app.domain.Market
 import com.yjh.project.q_stone_customer_app.network.Api
+import com.yjh.project.q_stone_customer_app.presentation.OrderList.OrderListActivity
 import com.yjh.project.q_stone_customer_app.presentation.app.AppContract
 import com.yjh.project.q_stone_customer_app.presentation.app.AppPresenter
 import com.yjh.project.q_stone_customer_app.presentation.main.DetailContract
@@ -95,6 +96,17 @@ class DetailActivity : AppCompatActivity(), DetailContract.View , AppContract.Vi
 
         setLoading()
         loadMarket()
+
+        order_button.setOnClickListener {
+            Intent(this@DetailActivity,OrderListActivity::class.java).apply {
+
+                var v=detailRecylcerViewAdapter.getData().filter{ it.onClick }
+
+                putExtra("array",v.toTypedArray())
+            }.let {
+                startActivity(it)
+            }
+        }
     }
 
     override fun onPause() {
@@ -174,8 +186,9 @@ class DetailActivity : AppCompatActivity(), DetailContract.View , AppContract.Vi
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun setText(str: String) {
+    override fun setText(str: String,check :String) {
         beacon_num.text="rssi:"+str
+        beacon_network.text=check
     }
 
     private fun setWindowAnimations(){

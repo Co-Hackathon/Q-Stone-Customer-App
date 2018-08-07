@@ -34,15 +34,15 @@ class MainActivity : AppCompatActivity(), MainContract.View  {
     var btManager: BluetoothManager? = null
     var btAdapter: BluetoothAdapter? = null
     var scanHandler = Handler()
-    val scan_interval_ms = 5000L
+    val scan_interval_ms = 2500L
     var isScanning = false
 
 
 
 
     var test= arrayListOf(
-            com.yjh.project.q_stone_customer_app.domain.Beacon("fda50693-a4e2-4fb1-afcf-c6eb07647825","40:F3:85:90:63:5F","맥",205,70),
-            com.yjh.project.q_stone_customer_app.domain.Beacon("fda50693-a4e2-4fb1-afcf-c6eb07647825","40:F3:85:90:63:5F","맥",205,100)
+            com.yjh.project.q_stone_customer_app.domain.Beacon("fda50693-a4e2-4fb1-afcf-c6eb07647825","40:F3:85:90:63:5F","교촌치킨 비콘",205,70),
+            com.yjh.project.q_stone_customer_app.domain.Beacon("fda50693-a4e2-4fb1-afcf-c6eb07647825","40:F3:85:90:63:5F","맥도날드 비콘",205,80)
     )
     //var test= arrayListOf<com.yjh.project.q_stone_customer_app.domain.Beacon>()
 
@@ -66,11 +66,11 @@ class MainActivity : AppCompatActivity(), MainContract.View  {
         btAdapter = btManager!!.adapter
 
         init()
-
+        showDialog("비콘 찾는 중")
         scanHandler.post(scanRunnable)
 
-        Thread(Runnable {
-            Thread.sleep(500)
+        /*Thread(Runnable {
+            Thread.sleep(200)
             runOnUiThread {
                 if (mainRecyclerViewAdapter.itemCount <= 0) {
                     empty_bluetooth.visibility = View.VISIBLE
@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity(), MainContract.View  {
 
             }
 
-        }).start()
+        }).start()*/
 
 
 
@@ -109,7 +109,7 @@ class MainActivity : AppCompatActivity(), MainContract.View  {
     override fun showDialog(str: String) {
         val dialog = AlertDialog.Builder(this@MainActivity)
         dialog.setTitle(str)
-                .setMessage("비콘이 $str 되었습니다.")
+                .setMessage("주변에 있는 비콘을 찾고 있습니다. 좀만 기달려주세요")
                 .setPositiveButton("확인", DialogInterface.OnClickListener { dialog, which -> }).create().show()
     }
 

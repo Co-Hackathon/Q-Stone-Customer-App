@@ -11,7 +11,7 @@ interface DetailContract{
         fun beaconInit()
         fun showDialog(str: String)
         fun showToast(str : String)
-        fun setText(str : String)
+        fun setText(str : String,check :String)
         fun setLoading()
         fun EndLoading()
         fun getMarket()

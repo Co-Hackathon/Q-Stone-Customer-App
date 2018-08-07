@@ -26,7 +26,7 @@ class MainRecyclerViewAdapter(val activity: Activity) : RecyclerView.Adapter<Mai
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
 
         holder.apply {
-            bindTo("abc",beacons[position],{
+            bindTo(beacons[position],{
                 startActivity(holder,Intent(activity,DetailActivity::class.java).apply {
                     putExtra("uuID",beacons[position].uuID)
                     putExtra("major",beacons[position].major)

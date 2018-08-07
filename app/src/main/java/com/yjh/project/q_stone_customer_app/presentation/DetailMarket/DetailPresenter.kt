@@ -19,9 +19,13 @@ class DetailPresenter(val view : DetailContract.View) : DetailContract.UserActio
                 if(!p1!!.isEmpty()) {
                     Log.d("beacon","test")
                     var beacon = p1!![0]
-                    view.setText(beacon.rssi.toString())
+                    view.setText(beacon.rssi.toString(),"신호양호")
 
-
+                    if(p1!![0].rssi < -90){
+                        view.setText(beacon.rssi.toString(),"신호 불안정")
+                    }else if(p1!![0].rssi < -100){
+                        view.setText(beacon.rssi.toString(),"신호 종료")
+                    }
                     if (!check){
                         view.showDialog("연결 성공")
                         view.EndLoading()

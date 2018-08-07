@@ -29,7 +29,9 @@
         <activity android:name=".presentation.intro.Intro" />
         <activity android:name=".presentation.intro.Login" />
         <activity android:name=".presentation.intro.SignUp" />
-        <activity android:name=".presentation.DetailMarket.DetailActivity"></activity>
+        <activity android:name=".presentation.DetailMarket.DetailActivity" />
+        <activity android:name=".presentation.order.Pay" />
+        <activity android:name=".presentation.OrderList.OrderListActivity"></activity>
     </application>
 
 </manifest>
