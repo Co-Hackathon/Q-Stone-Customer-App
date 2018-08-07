@@ -47,9 +47,6 @@ public class Login extends AppCompatActivity {
         loginButton=findViewById(R.id.emailLogin);
         id=findViewById(R.id.email);
         password=findViewById(R.id.pwd);
-        password.setInputType(InputType.TYPE_CLASS_NUMBER);
-        PasswordTransformationMethod passwdfm = new PasswordTransformationMethod();
-        password.setTransformationMethod(passwdfm);
 
         ImageView back = findViewById(R.id.back);
 

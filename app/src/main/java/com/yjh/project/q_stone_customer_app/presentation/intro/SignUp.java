@@ -33,13 +33,5 @@ public class SignUp extends AppCompatActivity {
         });
 
         password=findViewById(R.id.pwd);
-        password.setInputType(InputType.TYPE_CLASS_NUMBER);
-        PasswordTransformationMethod passwdfm = new PasswordTransformationMethod();
-        password.setTransformationMethod(passwdfm);
-
-        checkpassword=findViewById(R.id.pwd);
-        checkpassword.setInputType(InputType.TYPE_CLASS_NUMBER);
-        PasswordTransformationMethod passwdfm2 = new PasswordTransformationMethod();
-        checkpassword.setTransformationMethod(passwdfm2);
     }
 }
