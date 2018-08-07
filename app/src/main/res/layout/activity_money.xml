@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Money">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:text="적립금"
+        android:id="@+id/moneytitle"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:fontFamily="@font/nanum_bd"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moneytitle"
+        android:layout_marginTop="50dp"
+        android:text="현재 적립금"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:fontFamily="@font/nanum_bd"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moneytitle"
+        android:layout_marginTop="50dp"
+        android:text="300원"
+        android:textColor="#4682B4"
+        android:textSize="20dp"
+        android:fontFamily="@font/nanum_bd"
+        android:id="@+id/nowmoney"/>
+    <TextView
+        android:text="1,000원 이상부터 사용 가능"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/nowmoney"
+        android:layout_marginRight="30dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textColor="#000"
+        android:textSize="15dp"
+        android:fontFamily="@font/nanum_bd"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nowmoney"
+        android:layout_marginTop="50dp"
+        android:text="사용 가능 적립금"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:fontFamily="@font/nanum_bd"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nowmoney"
+        android:layout_marginTop="50dp"
+        android:text="0원"
+        android:textColor="#4682B4"
+        android:textSize="20dp"
+        android:fontFamily="@font/nanum_bd"
+        android:id="@+id/useablemoney"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/nanum_bd"
+        android:text="사용할 적립금"
+        android:textColor="#000"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/useablemoney" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/rounded_outline"
+        android:fontFamily="@font/nanum_bd"
+        android:hint="금액 입력"
+        android:padding="10dp"
+        android:textColor="#000"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/usingmoney"
+        app:layout_constraintTop_toBottomOf="@+id/useablemoney" />
+
+    <TextView
+        android:id="@+id/usingmoney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/nanum_bd"
+        android:text="원"
+        android:textColor="#4682B4"
+        android:textSize="20dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/useablemoney" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usingmoney"
+        android:layout_marginTop="50dp"
+        android:text="15,0000원"
+        android:textColor="#4682B4"
+        android:textSize="20dp"
+        android:fontFamily="@font/nanum_bd"
+        android:id="@+id/paymoney"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/nanum_bd"
+        android:text="결제할 금액"
+        android:textColor="#000"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usingmoney" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paymoney"
+        android:layout_marginTop="50dp"
+        android:text="0원"
+        android:textColor="#4682B4"
+        android:textSize="20dp"
+        android:fontFamily="@font/nanum_bd"
+        android:id="@+id/residue_money"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/nanum_bd"
+        android:text="남은 금액"
+        android:textColor="#000"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paymoney" />
+
+    <Button
+        android:id="@+id/buy"
+        android:layout_width="192dp"
+        android:layout_height="70dp"
+        android:background="#4682B4"
+        android:text="적용"
+        android:fontFamily="@font/nanum_bd"
+        android:textColor="#FFF"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/notbuy"
+        android:layout_width="191dp"
+        android:layout_height="70dp"
+        android:background="#CFCFCF"
+        android:text="적용"
+        android:fontFamily="@font/nanum_bd"
+        android:textColor="#000"
+        android:textSize="25sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

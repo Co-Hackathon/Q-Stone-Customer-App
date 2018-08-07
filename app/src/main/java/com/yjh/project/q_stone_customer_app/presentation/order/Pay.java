@@ -15,7 +15,7 @@ public class Pay extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay);
-
+/*
         ImageView back = findViewById(R.id.back);
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -25,6 +25,6 @@ public class Pay extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        });
+        });*/
     }
 }

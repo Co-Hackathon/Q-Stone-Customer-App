@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Q-Stone-Customer-App</string>
     <string name="intro">기존 회원이라면 누르세요.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
