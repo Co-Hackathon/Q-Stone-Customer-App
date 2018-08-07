@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.yjh.project.q_stone_customer_app">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
@@ -18,8 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".presentation.splash.SplashActivity"
-            android:theme="@style/Splash">
+        <activity
+            android:name=".presentation.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,6 +28,9 @@
 
         <activity android:name=".presentation.main.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".presentation.intro.Intro" />
+        <activity android:name=".presentation.intro.Login" />
+        <activity android:name=".presentation.intro.SignUp"></activity>
     </application>
 
 </manifest>
