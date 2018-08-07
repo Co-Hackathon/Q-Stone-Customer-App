@@ -3,6 +3,8 @@ package com.yjh.project.q_stone_customer_app.presentation.intro;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -43,6 +45,9 @@ public class Login extends AppCompatActivity {
         loginButton=findViewById(R.id.emailLogin);
         id=findViewById(R.id.email);
         password=findViewById(R.id.pwd);
+        password.setInputType(InputType.TYPE_CLASS_NUMBER);
+        PasswordTransformationMethod passwdfm = new PasswordTransformationMethod();
+        password.setTransformationMethod(passwdfm);
 
 
 
